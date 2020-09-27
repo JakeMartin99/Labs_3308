@@ -38,3 +38,13 @@
   text-align: right;
   padding-right: 50px;
 }
+
+#playerimg{
+  border-width: thick;
+  border-color: black;
+  border-style: groove;
+}
+
+.lgfont{
+  font-size: 14pt;
+}

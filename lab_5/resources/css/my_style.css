@@ -1,5 +1,5 @@
 /* Add any css you want to use for you website here */
-body{
+#body_home{
   background-image: url("../img/buff_background.jpg");
   background-size: 100% 210%;
 }
@@ -11,8 +11,14 @@ body{
 #mainhomebox{
   background-color: rgb(215, 215, 215);
   display:inline-block;
+  vertical-align: top;
   position: absolute;
   padding: 25px;
+}
+
+#homeseparator{
+  display:inline-block;
+  vertical-align: top;
 }
 
 .imagediv{

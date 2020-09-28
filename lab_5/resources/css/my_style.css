@@ -48,3 +48,15 @@
 .lgfont{
   font-size: 14pt;
 }
+
+#formtable{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 50%;
+}
+
+#formtable tr{
+  height: 125px;
+  vertical-align: top;
+}

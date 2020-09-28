@@ -12,11 +12,11 @@
 	<link href="../resources/css/my_style.css" rel="stylesheet">
   </head>
   <body>
-	
+
 	<img src="../resources/img/beproudcapaabanner.jpg" class="img-fluid" alt="Registration Page Banner for CU Football">
     <br>
 	<br>
-	<div class="container">
+	<div class="container lgfont">
 		<form action="home.html">
 			<!--
 				Todo: Create a form with the following fields:
@@ -33,7 +33,58 @@
 					11. Submit Button (links to home page)
 
 			-->
-			<input type="submit" value="submit" class="btn btn-primary btn-block">
+      <br>
+      <table id="formtable">
+        <tr>
+          <td><label for="name">Full<br>Name</label></td>
+          <td colspan="2"><input class="form-control" type="text" name="my_text_field" placeholder="Enter Name"></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email<br>Address</label></td>
+          <td colspan="2"><input class="form-control" type="email" name="my_email_field" placeholder="Enter Email"></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password</label></td>
+          <td colspan="2"><input class="form-control" type="password" name="my_pw_field" placeholder="Password"></td>
+        </tr>
+        <tr>
+          <td><label for="confpasswd">Confirm<br>Password</label></td>
+          <td colspan="2"><input class="form-control" type="password" name="my_confpw_field" placeholder="Confirm Password"></td>
+        </tr>
+        <tr>
+          <td><label for="Alumni">CU<br>Boulder<br>Alumni</label></td>
+          <td class="leftalign"><input type="radio" name="alumn" value="Yes">Yes<br>
+              <input type="radio" name="alumn" value="No">No</td>
+        </tr>
+        <tr>
+          <td><label for="Student">CU<br>Boulder<br>Student</label></td>
+          <td class="leftalign"><input type="radio" name="student" value="Yes">Yes<br>
+            <input type="radio" name="student" value="No">No</td>
+        </tr>
+        <tr>
+          <td><label for="Status">Student<br>Status</label></td>
+          <td class="leftalign" colspan="2">
+            <input type="radio" name="stat" value="Undergrad" checked>Undergrad<br>
+            <select name="select_choice">
+              <option selected>Select Student Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+              <option value="1">Freshman</option>
+              <option value="2">Sophmore</option>
+              <option value="3">Junior</option>
+              <option value="4">Senior</option>
+            </select><br>
+            <input type="radio" name="stat" value="Grad">Grad<br>
+            <select name="select_choice">
+              <option selected>Select Student Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+              <option value="1">MA</option>
+              <option value="2">MBA</option>
+              <option value="3">PhD</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+    			<td colspan="3"><br><br><input type="submit" value="Submit" class="btn btn-primary btn-block"></td>
+        </tr>
+      </table>
 		</form>
 	</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

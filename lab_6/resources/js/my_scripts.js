@@ -73,6 +73,28 @@ function changeColor(color){
 
 						4. Update the second table to show the total number of wins/losses for the Buffs.
 */
+function loadStatsPage()
+{
+	var table = document.getElementById("stats_table");
+	var wins = 0;
+	var losses = 0;
+	for(var row = 2; row < table.rows.length; row++)
+	{
+		var oppTeam = table.rows[row].cells[1].innerHTML;
+		var hScore = parseInt(table.rows[row].cells[2].innerHTML);
+		var oScore = parseInt(table.rows[row].cells[3].innerHTML);
+		table.rows[row].cells[4].innerHTML = (hScore >= oScore ? "CU Boulder" : oppTeam);
+		if (hScore >= oScore)
+		{
+			wins++;
+		}
+		else{
+			losses++;
+		}
+	}
+	document.getElementById("wins").innerHTML = wins.toString();
+	document.getElementById("losses").innerHTML = losses.toString();
+}
 
 /*
 	Football Player Information Page

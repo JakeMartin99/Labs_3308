@@ -138,3 +138,26 @@ function loadStatsPage()
 					  avg_r_yards   - the average number of rushing yards for the player's Buff career
 					  avg_rec_yards - the average number of receiving yards for the player's Buff career
 */
+function loadPlayersPage(){
+	var dropdown = document.getElementById("player_selector");
+	for(var i=0; i<players.length; i++)
+	{
+		dropdown.innerHTML += "<a href=\"#\" onclick=switchPlayers(" + i.toString() + "); style=\"color:black;text-decoration:none;\">&nbsp&nbsp&nbsp&nbsp" + players[i]['name'] + "</a><br>";
+	}
+}
+
+function switchPlayers(playerNum) {
+	var player = players[playerNum];
+	document.getElementById("p_year").innerHTML = player.year;
+	document.getElementById("p_major").innerHTML = player.major;
+	document.getElementById("g_played").innerHTML = player.games_played;
+	var games = player.games_played;
+	document.getElementById("player_img").src = player.img;
+	document.getElementById("player_img").alt = player.alt;
+	document.getElementById("p_yards").innerHTML = player.pass_yards;
+	document.getElementById("r_yards").innerHTML = player.rushing_yards;
+	document.getElementById("rec_yards").innerHTML = player.receiving_yards;
+	document.getElementById("avg_p_yards").innerHTML = Math.round(parseInt(player.pass_yards) / games).toString();
+	document.getElementById("avg_r_yards").innerHTML = Math.round(parseInt(player.rushing_yards) / games).toString();
+	document.getElementById("avg_rec_yards").innerHTML = Math.round(parseInt(player.receiving_yards) / games).toString();
+}

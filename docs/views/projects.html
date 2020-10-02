@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark" style="font-size: 22px">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="mypage_bootstrap.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mypage.html">Old Homepage</a>
+        </li>
+      </ul>
+      <a href="https://github.com/JakeMartin99"><img src="../resources/img/github.png" height=50px style="margin-left:0px"></a>
+    </nav>
+    <div id="proj-carousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#proj-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#proj-carousel" data-slide-to="1"></li>
+        <li data-target="#proj-carousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="card text-center">
+            <img class="card-img" src="../resources/img/LEDboard.jpg" alt="Carousel Image 1" style="height:1000px">
+            <div class="card-img-overlay bg-light mx-5 mt-auto mb-5" style="height:20%">
+              <a href="https://github.com/JakeMartin99/Lightboard_v2.0"><h4 class="card-title font-weight-bold">LED-Strip Board</h4></a>
+              <p class="card-text">Developed ​arduino C++​ code to operate the graphics for an LED-strip light board
+                that my friend assembled, and am continuing to add new modes and “animations” for it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card text-center">
+            <img class="card-img" src="../resources/img/tank.jpg" alt="Carousel Image 2" style="height:1000px">
+            <div class="card-img-overlay bg-light mx-5 mt-auto mb-5" style="height:20%">
+              <a href="https://github.com/CSCI-3308-CU-Boulder/The-Ominous-Corp"><h4 class="card-title font-weight-bold">CSCI 3308 Group Project - Tank Royale</h4></a>
+              <p class="card-text">This project is still in the early stages, but will entail
+                the development of the full stack of a web-based game with a team of several classmates.
+              So far, most of my contributions have been implementing base game functionality in Unity C#.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card text-center">
+            <img class="card-img" src="../resources/img/encrypt.jpg" alt="Carousel Image 3" style="height:1000px">
+            <div class="card-img-overlay bg-light mx-5 mt-auto mb-5" style="height:20%">
+              <a href="https://github.com/JakeMartin99/CU-Boulder-Projects/tree/master/Fall2019/ECEN2703"><h4 class="card-title font-weight-bold">ECEN 2703 Final Project - Encryption in Python</h4></a>
+              <p class="card-text">This was my final project for ECEN 2703 - Discrete Stuctures: an investigation into
+                multplie forms of encryption, and how effective / safe they are.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#proj-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon ml-0 mr-auto bg-dark" aria-hidden="false"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#proj-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon mr-0 ml-auto bg-dark" aria-hidden="false"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </body>
+</html>

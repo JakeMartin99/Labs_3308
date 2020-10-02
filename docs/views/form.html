@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark" style="font-size: 22px">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="mypage_bootstrap.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="projects.html">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mypage.html">Old Homepage</a>
+        </li>
+      </ul>
+      <a href="https://github.com/JakeMartin99"><img src="../resources/img/github.png" height=50px style="margin-left:0px"></a>
+    </nav>
+    <div class="container mt-3 w-75">
+      <h1 class="font-weight-bold my-3">Add New Interest</h1>
+      <form>
+        <div class="form-group">
+          <label for="interestNameInput">Interest Name</label>
+          <input type="text" class="form-control" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="interestTextInput">Text About Interest</label>
+          <textarea class="form-control" rows="7"></textarea>
+        </div>
+        <div class="form-group row mx-3">
+          <div class="col">
+            <label for="imageUploadFile" class="col-form-label">Upload Local Image:</label>
+            <input type="file" class="form-control-file" placeholder="Choose File">
+          </div>
+          <div class="col">
+            <label for="numberTweetsInput" class="col-form-label">Select # Tweets to Display</label>
+            <select class="form-control">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="interstNumInput">On a scale of 1-5, how interested in this are you?</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="1">
+            <label class="form-check-label" for="radio1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="2">
+            <label class="form-check-label" for="radio1">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="3">
+            <label class="form-check-label" for="radio1">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="4">
+            <label class="form-check-label" for="radio1">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="5">
+            <label class="form-check-label" for="radio1">5</label>
+          </div>
+        </div>
+        <label for="loginInput">Login to Finish Submitting</label>
+        <div class="form-group row mx-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Username">
+          </div>
+          <div class="col">
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+        </div>
+        <a type="submit" class="btn btn-primary" href="mypage_bootstrap.html">Submit</a>
+      </form>
+    </div>
+  </body>
+</html>

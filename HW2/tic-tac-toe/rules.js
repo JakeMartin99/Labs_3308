@@ -160,8 +160,10 @@ function play() {
 	if(game_started())
 	{
 		var move = document.getElementById("move_text_id").value.toString();
+		console.log(board_state)
 		if(table_ids.includes(move) && board_state[table_ids.indexOf(move)] == -1)
 		{
+			board_state[table_ids.indexOf(move)] = whose_move() ? 1 : 0;
 			document.getElementById(move).innerHTML = whose_move() ? "X" : "O";
 			toggle_move();
 			document.getElementById("turn_info").innerHTML = "Turn for : <b>" + (whose_move() ? "X" : "O") + "</b>";
@@ -181,12 +183,13 @@ function winner_check(){
 	var winner = "";
 	for(var w=0; w<wins.length; w++)
 	{
-		if(board_state[winner[0]] && board_state[winner[1]] && board_state[winner[2]])
+		var arr = wins[w];
+		if(board_state[arr[0]] == 1 && board_state[arr[1]] == 1 && board_state[arr[2]] == 1)
 		{
 			winner = "X";
 			break;
 		}
-		if(!board_state[winner[0]] && !board_state[winner[1]] && !board_state[winner[2]])
+		if(board_state[arr[0]] == 0 && board_state[arr[1]] == 0 && board_state[arr[2]] == 0)
 		{
 			winner = "O";
 			break;

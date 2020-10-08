@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../resources/js/script.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark" style="font-size: 22px">
@@ -55,25 +56,28 @@
         </div>
         <br>
         <div class="card-group">
-          <div class="card px-3">
+          <div class="card px-3" id="interest1">
             <img class="card-img-top rounded" src="../resources/img/coding.gif" alt="Coding Gif">
             <div class "card-body">
               <h5 class="font-weight-bold ml-3 mt-3">Coding</h5>
-              <p class="mx-3">I like coding because it is creative and challenging!</p>
+              <p class="mx-3">I like coding because it is creative!</p>
+              <button class="rounded-circle btn btn-primary font-weight-bold" onClick="addTweet(1)">+</button>
             </div>
           </div>
-          <div class="card px-3">
+          <div class="card px-3" id="interest2">
             <img class="card-img-top rounded" src="../resources/img/stocks.gif" alt="Stocks Gif">
             <div class "card-body">
               <h5 class="font-weight-bold ml-3 mt-3">Trading / Investing</h5>
               <p class="mx-3">I like trading because money is neat!</p>
+              <button class="rounded-circle btn btn-primary font-weight-bold" onClick="addTweet(2)">+</button>
             </div>
           </div>
-          <div class="card px-3">
+          <div class="card px-3" id="interest3">
             <img class="card-img-top rounded" src="../resources/img/VR.gif" alt="Gaming Gif">
             <div class "card-body">
               <h5 class="font-weight-bold ml-3">Gaming</h5>
               <p class="mx-3">I like gaming because it is fun!</p>
+              <button class="rounded-circle btn btn-primary font-weight-bold" onClick="addTweet(3)">+</button>
             </div>
           </div>
         </div>

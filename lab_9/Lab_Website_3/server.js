@@ -148,13 +148,13 @@ app.get('/home/pick_color', function(req, res) {
     });
 
 });
-/*
+
 app.post('/home/pick_color', function(req, res) {
 	var color_hex = req.body.color_hex;
 	var color_name = req.body.color_name;
 	var color_message = req.body.color_message;
-	var insert_statement = "insert "; // Write a SQL statement to insert a color into the favorite_colors table
-	var color_select = ""; // Write a SQL statement to retrieve all of the colors in the favorite_colors table
+	var insert_statement = "INSERT INTO favorite_colors (hex_value, name, color_msg) VALUES (" + color_hex + ", " + color_name + ", " + color_message + ");"; // Write a SQL statement to insert a color into the favorite_colors table
+	var color_select = "SELECT * FROM favorite_colors;" // Write a SQL statement to retrieve all of the colors in the favorite_colors table
 
 	db.task('get-everything', task => {
         return task.batch([
@@ -165,7 +165,7 @@ app.post('/home/pick_color', function(req, res) {
     .then(info => {
     	res.render('pages/home',{
 				my_title: "Home Page",
-				data: info[1], // Return the color choices
+				data: info[0], // Return the color choices
 				color: color_hex, // Return the hex value of the color added to the table
 				color_msg: info[1][0].color_msg // Return the color message of the color added to the table
 			})
@@ -180,6 +180,6 @@ app.post('/home/pick_color', function(req, res) {
             })
     });
 });
-*/
+
 app.listen(3000);
 console.log('3000 is the magic port');

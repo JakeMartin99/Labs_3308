@@ -165,9 +165,9 @@ app.post('/home/pick_color', function(req, res) {
     .then(info => {
     	res.render('pages/home',{
 				my_title: "Home Page",
-				data: info[0], // Return the color choices
+				data: info[1], // Return the color choices
 				color: color_hex, // Return the hex value of the color added to the table
-				color_msg: info[1][0].color_msg // Return the color message of the color added to the table
+				color_msg: color_message // Return the color message of the color added to the table
 			})
     })
     .catch(err => {

@@ -181,5 +181,19 @@ app.post('/home/pick_color', function(req, res) {
     });
 });
 
+// team stats page
+app.get('/team_stats', function(req, res) {
+	res.render('pages/team_stats',{
+		my_title:"Team Stats Page"
+	});
+});
+
+// player info page
+app.get('/player_info', function(req, res) {
+	res.render('pages/player_info',{
+		my_title:"Player Info Page"
+	});
+});
+
 app.listen(3000);
 console.log('3000 is the magic port');

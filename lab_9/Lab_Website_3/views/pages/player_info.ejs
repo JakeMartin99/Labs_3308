@@ -27,7 +27,7 @@
 							<% if (data) {
 								ins = ''
 								data.forEach(function(item){
-									ins += '<option action="/player_info/post#' + item.id + '" method="get">' + item.name + '</option>';
+									ins += '<option value="' + item.id + '" method="get">' + item.name + '</option>';
 								}); %>
 								<%- ins %>
 							<% } %>

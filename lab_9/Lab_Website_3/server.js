@@ -197,8 +197,8 @@ app.get('/team_stats', function(req, res) {
     	res.render('pages/team_stats',{
 				my_title: "Team Stats",
 				games: info[0],
-        ws: info[1].count,
-        ls: info[2].count,
+        ws: info[1],
+        ls: info[2],
 			})
     })
     .catch(err => {

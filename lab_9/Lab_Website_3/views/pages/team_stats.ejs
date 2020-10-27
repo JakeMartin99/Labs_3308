@@ -50,19 +50,27 @@
 				<td> <!-- TODO: Display the total number of wins here.
 							    This value should come from your server.js files query, don't calculate it in this file! -->
 					<p>
-						<% if(ws)
-						{%>
-							<%- ws %>
-					 <% }%>
+						<%
+						if (ws) {
+							var w = '';
+							ws.forEach(function(item){
+								w += item.count;
+						  }); %>
+						  <%- w %>
+						<% } %>
 					</p>
 				</td>
 				<td> <!-- TODO: Display the total number of losses here.
 							    This value should come from your server.js files query, don't calculate it in this file! -->
 					<p>
-						<% if(ls)
-						{%>
-							<%- ls %>
-						<% }%>
+						<%
+						if (ls) {
+							var l = '';
+							ls.forEach(function(item){
+								l += item.count;
+						  }); %>
+						  <%- l %>
+						<% } %>
 					</p>
 				</td>
 			</tr>

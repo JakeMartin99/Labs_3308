@@ -183,9 +183,9 @@ app.post('/home/pick_color', function(req, res) {
 
 // team stats page
 app.get('/team_stats', function(req, res) {
-  var q_games = 'SELECT game_date, visitor_name, home_score, visitor_score, CASE WHEN visitor_score > home_score THEN visitor_name ELSE \'CU Boulder\' END AS winner FROM football_games';
-  var query2 = 'select * from football_games;';
-  var query3 = 'select * from football_games';
+  var q_games = 'SELECT game_date, visitor_name, home_score, visitor_score, CASE WHEN visitor_score > home_score THEN visitor_name ELSE \'CU Boulder\' END AS winner FROM football_games;'
+  var query2 = 'select * from football_games;'
+  var query3 = 'select * from football_games;'
   db.task('get-everything', task => {
       return task.batch([
           task.any(q_games),

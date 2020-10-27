@@ -184,18 +184,21 @@ app.post('/home/pick_color', function(req, res) {
 // team stats page
 app.get('/team_stats', function(req, res) {
 	var q_games = "SELECT game_date, visitor_name, home_score, visitor_score, CASE WHEN visitor_score > home_score THEN visitor_name ELSE 'CU Boulder' END AS winner FROM football_games;";
-	var query = "SELECT * FROM football_games;";
+	var wins = "SELECT count(*) FROM football_games WHERE home_score > visitor_score;";
+  var losses = "SELECT count(*) FROM football_games WHERE home_score < visitor_score;";
 	db.task('get-everything', task => {
         return task.batch([
             task.any(q_games),
-            task.any(query)
+            task.any(wins),
+            task.any(losses)
         ]);
     })
     .then(info => {
     	res.render('pages/team_stats',{
 				my_title: "Team Stats",
 				games: info[0],
-        quer: info[1]
+        ws: info[1].count,
+        ls: info[2].count,
 			})
     })
     .catch(err => {
@@ -203,7 +206,8 @@ app.get('/team_stats', function(req, res) {
             response.render('pages/team_stats', {
                 my_title: 'Team Stats',
                 games: '',
-                quer: ''
+                ws: '',
+                ls: ''
             })
     });
 

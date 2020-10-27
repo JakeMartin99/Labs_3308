@@ -207,8 +207,8 @@ app.get('/team_stats', function(req, res) {
                 color_msg: ''
             })
     });*/
-    res.render('pages/player_info',{
-  		my_title:"Player Info Page"
+    res.render('pages/team_stats',{
+  		my_title:"Team Stats Page"
   	});
 
 });

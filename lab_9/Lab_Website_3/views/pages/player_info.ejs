@@ -20,7 +20,7 @@
 				  <div class="card-body mx-auto">
 					<form class="form"action="/player_info/post" method="get">
 						<select class="custom-select" name="player_choice" onchange="this.form.submit()">
-							 <option <% if(id != -1){s=''}else{s='selected'}%><%- s %>>Select Player</option>
+							 <option <% if(i != -1){s=''}else{s='selected'}%><%- s %>>Select Player</option>
 							 <!-- TODO: Populate our select with player options
 							 			For each player, set a new option with a value matching the palyer's id,
 							 			but will display the player's name-->

@@ -60,6 +60,7 @@
 							if (games){
 								games.forEach(function(item){
 									numgames += item.count;
+									n = item.count;
 								});
 							}
 							if (player) {
@@ -69,9 +70,9 @@
 									pass_yds += item.passing_yards;
 									rush_yds += item.rushing_yards;
 									rec_yds += item.receiving_yards;
-									avg_pass_yds += ParseInt(passing_yards) / ParseInt(numgames);
-									avg_rush_yds += ParseInt(rushing_yards) / ParseInt(numgames);
-									avg_rec_yds += ParseInt(receiving_yards) / ParseInt(numgames);
+									avg_pass_yds += item.passing_yards / n;
+									avg_rush_yds += item.rushing_yards / n;
+									avg_rec_yds += item.receiving_yards / n;
 								});
 							} %>
 							<th>Year</th>

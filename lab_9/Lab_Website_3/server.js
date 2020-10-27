@@ -236,7 +236,7 @@ app.get('/player_info', function(req, res) {
     })
 });
 app.get('/player_info/post', function(req, res) {
-  player_id = req.query;
+  player_id = req.query.pid;
 	var query = "SELECT id, name FROM football_players;";
   var pinfo = "SELECT * FROM football_players WHERE id = " + player_id + ";";
   var numgames = "SELECT * FROM football_games WHERE " + player_id + " = ANY (players);";

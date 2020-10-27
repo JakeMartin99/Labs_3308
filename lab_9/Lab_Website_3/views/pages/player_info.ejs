@@ -8,19 +8,19 @@
 				<!-- TODO: Modify the ejs code below, to conditionally set the image_src to be from our chosen player -->
 				  <%
 				  var image_src = '../resources/img/helmet.jpg';
+					i = -1;
 					if (player){
 						player.forEach(function(item){
 							image_src = item.img_src;
-							console.log(image_src)
+							i = item.player_id;
 						});
 					}
-					console.log(player)
 				  %>
 				 <img class="card-img-top" id="player_img" src= "<%- image_src %>" alt="Image of Football Player">
 				  <div class="card-body mx-auto">
 					<form class="form"action="/player_info/post" method="get">
 						<select class="custom-select" name="player_choice" onchange="this.form.submit()">
-							 <option <% if(player){s=''}else{s='selected'}%><%- s %>>Select Player</option>
+							 <option <% if(id != -1){s=''}else{s='selected'}%><%- s %>>Select Player</option>
 							 <!-- TODO: Populate our select with player options
 							 			For each player, set a new option with a value matching the palyer's id,
 							 			but will display the player's name-->
@@ -28,6 +28,9 @@
 								ins = ''
 								data.forEach(function(item){
 									ins += '<option ';
+									if(item.id == i){
+										ins += 'selected ';
+									}
 									ins += 'value="' + item.id + '">' + item.name + '</option>';
 								}); %>
 								<%- ins %>
@@ -66,6 +69,9 @@
 									pass_yds += item.passing_yards;
 									rush_yds += item.rushing_yards;
 									rec_yds += item.receiving_yards;
+									avg_pass_yds += ParseInt(passing_yards) / ParseInt(numgames);
+									avg_rush_yds += ParseInt(rushing_yards) / ParseInt(numgames);
+									avg_rec_yds += ParseInt(receiving_yards) / ParseInt(numgames);
 								});
 							} %>
 							<th>Year</th>

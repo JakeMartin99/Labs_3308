@@ -7,9 +7,7 @@
 				<div class="card">
 				<!-- TODO: Modify the ejs code below, to conditionally set the image_src to be from our chosen player -->
 				  <%
-					console.log(data)
 					console.log(player)
-					console.log(games)
 				  var image_src = '../resources/img/helmet.jpg';
 					if (player){
 						if(player.img_src){
@@ -23,14 +21,16 @@
 				  <div class="card-body mx-auto">
 					<form class="form"action="/player_info/post" method="get">
 						<select class="custom-select" name="player_choice" onchange="this.form.submit()">
-							 <option selected>Select Player</option>
+							 <option <% if(player){s=''}else{s='selected'}%> <%- s %>>Select Player</option>
 							 <!-- TODO: Populate our select with player options
 							 			For each player, set a new option with a value matching the palyer's id,
 							 			but will display the player's name-->
 							<% if (data) {
 								ins = ''
 								data.forEach(function(item){
-									ins += '<option value="' + item.id + '">' + item.name + '</option>';
+									ins += '<option ';
+									if(player && player[0].player_id == item.id){ ins += 'selected '};
+									ins += 'value="' + item.id + '">' + item.name + '</option>';
 								}); %>
 								<%- ins %>
 							<% } %>
@@ -62,34 +62,13 @@
 								});
 							}
 							if (player) {
-								if (player.year){
-									player.forEach(function(item){
-										year += item.year;
-									});
-								}
-								if (player.major){
-									player.forEach(function(item){
-										major += item.major;
-									});
-								}
-								if (player.passing_yards){
-									player.forEach(function(item){
-										pass_yds += item.passing_yards;
-										avg_pass_yds += ParseInt(pass_yds) / ParseInt(numgames);
-									});
-								}
-								if (player.rushing_yards){
-									player.forEach(function(item){
-										rush_yds += item.rushing_yards;
-										avg_rush_yds += ParseInt(rush_yds) / ParseInt(numgames);
-									});
-								}
-								if (player.recieving_yards){
-									player.forEach(function(item){
-										rec_yds += item.recieving_yards;
-										avg_rec_yds += ParseInt(rec_yds) / ParseInt(numgames);
-									});
-								}
+								player.forEach(function(item){
+									year += item.year;
+									major += item.major;
+									pass_yds += item.passing_yards;
+									rush_yds += item.rushing_yards;
+									rec_yds += item.recieving_yards;
+								});
 							} %>
 							<th>Year</th>
 							<td> <%- year %>	</td>

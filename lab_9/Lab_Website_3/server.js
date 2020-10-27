@@ -183,9 +183,34 @@ app.post('/home/pick_color', function(req, res) {
 
 // team stats page
 app.get('/team_stats', function(req, res) {
-	res.render('pages/team_stats',{
-		my_title:"Team Stats Page"
-	});
+  var q_games = 'SELECT game_date, visitor_name, home_score, visitor_score, CASE WHEN visitor_score > home_score THEN visitor_name ELSE \'CU Boulder\' END AS winner FROM football_games';
+  var query2 = 'select * from football_games;';
+  var query3 = 'select * from football_games';
+  db.task('get-everything', task => {
+      return task.batch([
+          task.any(q_games),
+          task.any(query2),
+          task.any(query3)
+      ]);
+  })
+  .then(data => {
+  	res.render('/team_stats',{
+  			my_title: "Team Stats",
+  			games: data[0],
+  			result_2: data[1],
+  			result_3: data[2]
+  		})
+  })
+  .catch(err => {
+      // display error message in case an error
+          console.log('error', err);
+          res.render('/team_stats',{
+  			my_title: "Team Stats",
+  			games: '',
+  			result_2: '',
+  			result_3: ''
+  		})
+  });
 });
 
 // player info page

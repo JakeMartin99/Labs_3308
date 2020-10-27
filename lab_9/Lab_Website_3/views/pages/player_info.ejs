@@ -13,6 +13,7 @@
 						if(player.img_src){
 							player.forEach(function(item){
 								image_src = item.img_src;
+								console.log(image_src)
 							});
 						}
 					}
@@ -29,7 +30,7 @@
 								ins = ''
 								data.forEach(function(item){
 									ins += '<option ';
-									if(player && player[0].player_id == item.id){ ins += 'selected '};
+									if(player && player[0].player_id == item.id){ ins += 'selected ' console.log(player[0].player_id)};
 									ins += 'value="' + item.id + '">' + item.name + '</option>';
 								}); %>
 								<%- ins %>
@@ -67,7 +68,7 @@
 									major += item.major;
 									pass_yds += item.passing_yards;
 									rush_yds += item.rushing_yards;
-									rec_yds += item.recieving_yards;
+									rec_yds += item.receiving_yards;
 								});
 							} %>
 							<th>Year</th>

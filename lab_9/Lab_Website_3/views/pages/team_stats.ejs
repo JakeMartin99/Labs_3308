@@ -26,7 +26,15 @@
 						that ran onload for Lab 5.  We are doing the same kind of operations we had in Lab 5, but we are instead having
 						everything handled via server-side scriptes
 			-->
-			
+			<%
+			if (games) {
+				var g = '';
+				games.forEach(function(item){
+					g += '<tr><td>' + item.game_date + '</td>';
+					g += '<td>' + item.winner + '</td></tr>'
+			  }); %>
+			  <%- g %>
+			<% } %>
 
 		</table>
 		<br>

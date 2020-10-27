@@ -200,7 +200,7 @@ app.get('/teams_stats', function(req, res) {
     })
     .catch(err => {
             console.log('error', err);
-            response.render('pages/team_stats', {
+            response.render('/pages/team_stats', {
                 title: 'Team Stats',
                 data: '',
                 color: '',

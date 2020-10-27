@@ -215,10 +215,23 @@ app.get('/team_stats', function(req, res) {
 
 // player info page
 app.get('/player_info', function(req, res) {
-	res.render('pages/player_info',{
-		my_title:"Player Info Page"
-	});
+	var query = "SELECT id, name FROM football_players;";
+	db.any(query)
+    .then(function (rows) {
+    	res.render('pages/player_info',{
+				my_title: "Player Info",
+				data: rows
+			})
+    })
+    .catch(function (err) {
+            console.log('error', err);
+            response.render('pages/player_info', {
+                my_title: 'Player Info',
+                data: ''
+            })
+    })
 });
+
 
 app.listen(3000);
 console.log('3000 is the magic port');

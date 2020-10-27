@@ -240,7 +240,6 @@ app.get('/player_info/post', function(req, res) {
 	var query = "SELECT id, name FROM football_players;";
   var pinfo = "SELECT * FROM football_players WHERE id = " + player_id + ";";
   var numgames = "SELECT count(*) FROM football_games WHERE " + player_id + " = ANY (players);";
-  console.log(query + "\n" + pinfo + "\n" + numgames)
 	db.task('get-everything', task => {
         return task.batch([
             task.any(query),

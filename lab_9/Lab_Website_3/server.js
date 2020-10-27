@@ -231,7 +231,37 @@ app.get('/player_info', function(req, res) {
             })
     })
 });
+app.get('/player_info/post', function(req, res) {
+  player_id = req.query;
+	var query = "SELECT id, name FROM football_players;";
+  var pinfo = "SELECT * FROM football_players WHERE id = " + player_id + ";";
+  var numgames = "SELECT * FROM football_games WHERE " + player_id + " = ANY (players);";
+	db.task('get-everything', task => {
+        return task.batch([
+            task.any(query),
+            task.any(pinfo),
+            task.any(numgames)
+        ]);
+    })
+    .then(info => {
+    	res.render('pages/player_info',{
+				my_title: "Player Info",
+				data: info[0],
+        player: info[1],
+        games: info[2]
+			})
+    })
+    .catch(err => {
+            console.log('error', err);
+            response.render('pages/player_info', {
+                my_title: 'Player Info',
+                data: '',
+                player: '',
+                games: ''
+            })
+    });
 
+});
 
 app.listen(3000);
 console.log('3000 is the magic port');

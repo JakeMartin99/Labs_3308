@@ -8,7 +8,13 @@
 				<!-- TODO: Modify the ejs code below, to conditionally set the image_src to be from our chosen player -->
 				  <%
 				  var image_src = '../resources/img/helmet.jpg';
-
+					if (player){
+						if(player.img_src){
+							player.forEach(function(item){
+								image_src = item.img_src;
+							});
+						}
+					}
 				  %>
 				 <img class="card-img-top" id="player_img" src= "<%- image_src %>" alt="Image of Football Player">
 				  <div class="card-body mx-auto">
@@ -37,28 +43,72 @@
 							<!-- TODO: Set Player Information
 							 			If a player has been selected, fill in their information in each of the fields below.
 							 		    You'll need to calculate here the player's average rushing, receiving, and passing yards.-->
+							<% if (games){
+								numgames = ''
+								games.forEach(function(item){
+									numgames += item.count;
+								});
+							}
+							if (player) {
+								year = ''
+								major = ''
+								pass_yds = ''
+								avg_pass_yds = ''
+								rush_yds = ''
+								avg_rush_yds = ''
+								rec_yds = ''
+								avg_rec_yds = ''
+								if (player.year){
+									player.forEach(function(item){
+										year += item.year;
+									});
+								}
+								if (player.major){
+									player.forEach(function(item){
+										major += item.major;
+									});
+								}
+								if (player.passing_yards){
+									player.forEach(function(item){
+										pass_yds += item.passing_yards;
+										avg_pass_yds += ParseInt(pass_yds) / ParseInt(numgames);
+									});
+								}
+								if (player.rushing_yards){
+									player.forEach(function(item){
+										rush_yds += item.rushing_yards;
+										avg_rush_yds += ParseInt(rush_yds) / ParseInt(numgames);
+									});
+								}
+								if (player.recieving_yards){
+									player.forEach(function(item){
+										rec_yds += item.recieving_yards;
+										avg_rec_yds += ParseInt(rec_yds) / ParseInt(numgames);
+									});
+								}
+							} %>
 							<th>Year</th>
-							<td>	</td>
+							<td> <%- year %>	</td>
 						</tr>
 						<tr>
 							<th>Major</th>
-							<td>	</td>
+							<td> <%- major %>	</td>
 						</tr>
 						<tr>
 							<th>Games Played</th>
-							<td>	</td>
+							<td> <%- numgames %>	</td>
 						</tr>
 						<tr>
-							<td>Passing Yards: </td>
-							<td>Avg. Passing Yards: </td>
+							<td>Passing Yards: <%- pass_yds %></td>
+							<td>Avg. Passing Yards: <%- avg_pass_yds %></td>
 						</tr>
 						<tr>
-							<td>Rushing Yards: </td>
-							<td>Avg. Rushing Yards: </td>
+							<td>Rushing Yards: <%- rush_yds %></td>
+							<td>Avg. Rushing Yards: <%- avg_rush_yds %></td>
 						</tr>
 						<tr>
-							<td>Receiving Yards: </td>
-							<td>Avg. Receiving Yards: </td>
+							<td>Receiving Yards: <%- rec_yds %></td>
+							<td>Avg. Receiving Yards: <%- avg_rec_yds %></td>
 						</tr>
 					</table>
 				</div>

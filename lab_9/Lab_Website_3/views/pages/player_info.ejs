@@ -7,22 +7,20 @@
 				<div class="card">
 				<!-- TODO: Modify the ejs code below, to conditionally set the image_src to be from our chosen player -->
 				  <%
-					console.log(player)
 				  var image_src = '../resources/img/helmet.jpg';
 					if (player){
-						if(player.img_src){
-							player.forEach(function(item){
-								image_src = item.img_src;
-								console.log(image_src)
-							});
-						}
+						player.forEach(function(item){
+							image_src = item.img_src;
+							console.log(image_src)
+						});
 					}
+					console.log(player)
 				  %>
 				 <img class="card-img-top" id="player_img" src= "<%- image_src %>" alt="Image of Football Player">
 				  <div class="card-body mx-auto">
 					<form class="form"action="/player_info/post" method="get">
 						<select class="custom-select" name="player_choice" onchange="this.form.submit()">
-							 <option <% if(player){s=''}else{s='selected'}%> <%- s %>>Select Player</option>
+							 <option <% if(player){s=''}else{s='selected'}%><%- s %>>Select Player</option>
 							 <!-- TODO: Populate our select with player options
 							 			For each player, set a new option with a value matching the palyer's id,
 							 			but will display the player's name-->
@@ -30,7 +28,6 @@
 								ins = ''
 								data.forEach(function(item){
 									ins += '<option ';
-									//if(player && player[0].player_id == item.id){ ins += 'selected '};
 									ins += 'value="' + item.id + '">' + item.name + '</option>';
 								}); %>
 								<%- ins %>

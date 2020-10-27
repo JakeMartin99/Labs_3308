@@ -195,7 +195,7 @@ app.get('/team_stats', function(req, res) {
         ]);
     })
     .then(info => {
-    	res.render('/pages/team_stats',{
+    	res.render('pages/team_stats',{
 				my_title: "Team Stats",
 				games: info[0],
         query: info[1]
@@ -203,9 +203,9 @@ app.get('/team_stats', function(req, res) {
     })
     .catch(err => {
             console.log('error', err);
-            response.render('/pages/team_stats', {
+            response.render('pages/team_stats', {
                 my_title: 'Team Stats',
-                games: '',
+                games: ''
                 query: ''
             })
     });

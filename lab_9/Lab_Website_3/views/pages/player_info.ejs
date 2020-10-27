@@ -30,7 +30,7 @@
 								ins = ''
 								data.forEach(function(item){
 									ins += '<option ';
-									if(player && player[0].player_id == item.id){ ins += 'selected ' console.log(player[0].player_id)};
+									//if(player && player[0].player_id == item.id){ ins += 'selected '};
 									ins += 'value="' + item.id + '">' + item.name + '</option>';
 								}); %>
 								<%- ins %>

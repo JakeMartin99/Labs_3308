@@ -220,14 +220,18 @@ app.get('/player_info', function(req, res) {
     .then(function (rows) {
     	res.render('pages/player_info',{
 				my_title: "Player Info",
-				data: rows
+				data: rows,
+        player: '',
+        games: ''
 			})
     })
     .catch(function (err) {
             console.log('error', err);
             response.render('pages/player_info', {
                 my_title: 'Player Info',
-                data: ''
+                data: '',
+                player: '',
+                games: ''
             })
     })
 });

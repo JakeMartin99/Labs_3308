@@ -182,27 +182,32 @@ app.post('/home/pick_color', function(req, res) {
 });
 
 // team stats page
-app.get('/team_stats', function(req, res) {
-  var q_games = 'SELECT game_date, visitor_name, home_score, visitor_score, CASE WHEN visitor_score > home_score THEN visitor_name ELSE \'CU Boulder\' END AS winner FROM football_games;';
-  db.task('get-everything', task => {
-      return task.batch([
-          task.any(q_games),
-      ]);
-  })
-  .then(info => {
-  	res.render('/team_stats', {
-  			my_title: "Team Stats",
-  			games: info[0]
-  		})
-  })
-  .catch(err => {
-      // display error message in case an error
-      console.log('error', err);
-      response.render('/team_stats', {
-  		    my_title: "Team Stats",
-  			  games: ''
-  		})
-  });
+app.get('/teams_stats', function(req, res) {
+	var q_games = "SELECT game_date, visitor_name, home_score, visitor_score, CASE WHEN visitor_score > home_score THEN visitor_name ELSE 'CU Boulder' END AS winner FROM football_games;";
+	var query = "SELECT * FROM football_games;";
+	db.task('get-everything', task => {
+        return task.batch([
+            task.any(q_games),
+            task.any(query)
+        ]);
+    })
+    .then(info => {
+    	res.render('/pages/team_stats',{
+				my_title: "Team Stats",
+				games: info[0],
+        query: info[1]
+			})
+    })
+    .catch(err => {
+            console.log('error', err);
+            response.render('pages/team_stats', {
+                title: 'Team Stats',
+                data: '',
+                color: '',
+                color_msg: ''
+            })
+    });
+
 });
 
 // player info page

@@ -30,7 +30,10 @@
 			if (games) {
 				var g = '';
 				games.forEach(function(item){
-					g += '<tr><td>' + item.game_date + '</td>';
+					g += '<tr><td>' + item.game_date.substring(4, 15) + '</td>'
+					g += '<td>' + item.visitor_name + '</td>'
+					g += '<td>' + item.home_score + '</td>'
+					g += '<td>' + item.visitor_score + '</td>'
 					g += '<td>' + item.winner + '</td></tr>'
 			  }); %>
 			  <%- g %>

@@ -52,16 +52,16 @@
 					<p>
 						<% if(ws)
 						{%>
-							<%- String(ws) %>
+							<%- String(ws.count) %>
 					 <% }%>
 					</p>
 				</td>
 				<td> <!-- TODO: Display the total number of losses here.
 							    This value should come from your server.js files query, don't calculate it in this file! -->
 					<p>
-						<% if(ws)
+						<% if(ls)
 						{%>
-							<%- String(ws) %>
+							<%- String(ls.count) %>
 						<% }%>
 					</p>
 				</td>

@@ -27,7 +27,7 @@
 							<% if (data) {
 								ins = ''
 								data.forEach(function(item){
-									ins += '<option for="pid" value="' + item.id + '" method="get">' + item.name + '</option>';
+									ins += '<option name="pid" value="' + item.id + '" method="get">' + item.name + '</option>';
 								}); %>
 								<%- ins %>
 							<% } %>

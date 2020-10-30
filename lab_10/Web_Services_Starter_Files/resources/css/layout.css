@@ -13,3 +13,13 @@ padding:2%;
 opacity: 0.9;
 background: #FFFFFF;
 }
+
+#locform{
+  width: 100%;
+  display: flex;
+}
+
+.formbox{
+  flex: 1;
+  text-align: center;
+}

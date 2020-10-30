@@ -14,9 +14,18 @@ function getFarenheitTemp(temp){
   return (9*temp/5)+32;
 }
 
+var latitude = 40.0150;
+var longitude = -105.2705;
+function setloc(){
+  form = document.forms[0];
+  latitude = parseFloat(form.lat.value);
+  longitude = parseFloat(form.lon.value);
+  update();
+}
+
 //run when the document object model is ready for javascript code to execute
-$(document).ready(function() {
-  var url =''; //Place your weatherstack API Call Here - access_key to be used: 5bc82451636190abd9d7afe6fe9b20b5
+function update() {
+  var url ='https://api.weatherstack.com/forecast?access_key=5bc82451636190abd9d7afe6fe9b20b5&query='+ latitude + ','+ longitude+'&forecast_days=6';  //Place your weatherstack API Call Here - access_key to be used: 5bc82451636190abd9d7afe6fe9b20b5
 
   $.ajax({url:url, dataType:"jsonp"}).then(function(data) {
     /*
@@ -43,6 +52,26 @@ $(document).ready(function() {
       8. summary_today: This will be updated to match the current summary for the day's weather.
 
     */
+    $("#image_today").attr('src', data.current.weather_icons[0]);
+    $("#heading").html("Today's Weather - " + data.location.name);
+    $("#local_time").html(data.location.localtime);
+    ftemp = getFarenheitTemp(data.current.temperature)
+    $("#temp_today").html(ftemp + " F");
+    $("#thermometer_inner").css('height', ftemp + "%");
+    if(ftemp < 65){
+      $("#thermometer_inner").css('background', "blue");
+    }
+    else if(ftemp > 85){
+      $("#thermometer_inner").css('background', "red");
+    }
+    else{
+      $("#thermometer_inner").css('background', "grey");
+    }
+    $("#precip_today").html(data.current.precip + "%");
+    $("#humidity_today").html(data.current.humidity + "%");
+    $("#wind_today").html(data.current.wind_speed);
+    $("#summary_today").html(data.current.weather_descriptions[0]);
+
     //helper function - to be used to get the key for each of the 5 days in the future when creating cards for forecasting weather
     function getKey(i){
         var week_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'];
@@ -77,5 +106,16 @@ $(document).ready(function() {
       <Hint2 - To add the cards to the HTML> - Make sure to use string concatenation to add the html code for the daily weather cards.  This should
       be set to the innerHTML for the 5_day_forecast.
     */
+    info = '';
+    for(var i = 1; i < 6; i++){
+      key = getKey(i);
+      info += '<div style="width: 20%;"><div class="card"><div class="card-body">';
+      info += '<h5 class="card-title">' + dayOfWeek + '</h5>';
+      info += '<p class="card-text">High: ' + getFarenheitTemp(key.maxtemp) + ' F<br> Low: ' + getFarenheitTemp(key.mintemp)
+      info += ' F<br> Sunrise: ' + key.astro.sunrise + '<br> Sunset: ' + key.astro.sunset + '</p>';
+      info += '</div></div></div>';
+    }
+    $("#5_day_forecast").html(info);
   })
-});
+}
+$(document).ready(update());

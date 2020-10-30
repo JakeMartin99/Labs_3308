@@ -22,5 +22,5 @@ function header(opt){
   str += '</ul>';
   str += '<a href="https://github.com/JakeMartin99"><img src="../resources/img/github.png" height=50px style="margin-left:0px"></a>';
   $('#navbar').html(str);
-  $("html").append('<footer style="text-align:center; position:absolute; bottom:0; width:100%;"><br><div class="container-fluid bg-secondary p-3"><a href="https://www.linkedin.com/in/jakemartin99/"><img class="rounded" src="../resources/img/linkedin.png" height="50px"></a></div></footer>');
+  $("html").append('<footer style="text-align:center; bottom:0; width:100%;"><br><div class="container-fluid bg-secondary p-3"><a href="https://www.linkedin.com/in/jakemartin99/"><img class="rounded" src="../resources/img/linkedin.png" height="50px"></a></div></footer>');
 }

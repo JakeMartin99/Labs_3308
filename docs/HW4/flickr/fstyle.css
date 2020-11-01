@@ -1,0 +1,11 @@
+#imgform{
+  width: 100%;
+  display: flex;
+  background-color: rgb(0, 100, 100);
+  justify-content: center;
+}
+
+.formbox{
+  margin-left: 20px;
+  margin-right: 20px;
+}

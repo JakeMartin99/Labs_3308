@@ -3,15 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>About Me</title>
+    <link rel="stylesheet" href="fstyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../resources/js/script.js"></script>
     <script src="../header.js"></script>
+    <script src="script.js"></script>
   </head>
   <body onload="header('flickr')">
     <nav id="navbar" class="navbar navbar-expand-sm bg-primary navbar-dark" style="font-size: 22px">
     </nav>
+    <form id="imgform" class="py-4" action="javascript:search()">
+      <div class="formbox">
+        <select id="num-imgs" class="form-control">
+          <option selected value="0">&nbsp-- Number of Images --&nbsp</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+          <option value="70">70</option>
+        </select>
+      </div>
+      <div class="formbox">
+        <input type="text" id="searchfield" class="form-control">
+      </div>
+      <div class="formbox">
+        <input type="submit" value="Search" class="btn btn-primary">
+      </div>
+      <br>
+    </form>
   </body>
 </html>

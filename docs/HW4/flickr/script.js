@@ -1,7 +1,6 @@
 key = "5c42274b62037ac6ea147b3bd3b684cf";
 secret = "5960866ce8d5618c";
 page = 1;
-size = "w"
 
 function search(){
   form = document.forms[0];
@@ -34,7 +33,7 @@ function makeApiCall() {
     ins = ''
     for(var i=0; i<photolist.length; i++){
       photo = photolist[i];
-      source = "https://live.staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_" + size + ".jpg";
+      source = "https://live.staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg";
       ins += '<div class="card m-5 rounded" style="min-width:15%; border: 5px solid teal;">';
       ins += '<img class="img-card-top img-fluid" style="object-fit:cover;height:80%;" src="' + source + '">';
       ins += '<div class="card-body">';
